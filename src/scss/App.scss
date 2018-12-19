@@ -5,6 +5,23 @@
 
   .meContainer {
     @include make-col-ready();
+
+    a {
+      margin: 0 5px;
+    }
+
+    button {
+      margin: 10px;
+      background: #fff;
+      border: 1px solid #000;
+      text-transform: uppercase;
+      padding: 5px 10px;
+      cursor: pointer;
+
+      &:focus{
+        outline: none;
+      }
+    }
   }
 
   text-align: center; 
