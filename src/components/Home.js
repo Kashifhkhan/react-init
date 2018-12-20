@@ -1,23 +1,23 @@
 import React from 'react';
+// import { bindActionCreators } from 'redux';
+import { connect } from 'react-redux';
+import actions  from '../actions';
 
-class Home extends React.Component { 
-  state = { count: 0 }
+class Home extends React.Component {   
 
   increment = () => {
-    this.setState({
-      count: this.state.count + 1
-    });
+      this.props.dispatch(actions.increament());
+      // this.props.dispatch({ type: 'INCREAMENT'});
   }
 
   decrement = () => {
-    this.setState({
-      count: this.state.count - 1
-    });
+    this.props.dispatch(actions.decreament)
+    // this.props.dispatch({ type: 'DECREAMENT'});
   }
 
 
     render(){
-      const time =  this.state.count;
+      const time =  this.props.count;
       return (
       <div>
         <h1>Home page</h1>
@@ -27,7 +27,17 @@ class Home extends React.Component {
         
       </div>
       )
-    }
+    }   
+    
+}
+// function mapDispatchToProps(dispatch) {
+//   return bindActionCreators(actions, dispatch);  
+// }
+
+function mapStateToProps(state) {
+  return {
+    count: state.count
+  };
 }
 
-export default Home;
+export default connect(mapStateToProps)(Home);
