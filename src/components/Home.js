@@ -4,7 +4,7 @@ import { connect } from 'react-redux';
 import actions  from '../actions';
 
 class Home extends React.Component { 
-  
+
   increment = () => {
       this.props.inc(2)
       // this.props.dispatch(actions.inc());
@@ -39,7 +39,7 @@ function mapDispatchToProps(dispatch) {
 
 function mapStateToProps(state) {
   return {
-    count: state.count
+    count: state.countReducer.count
   };
 }
 

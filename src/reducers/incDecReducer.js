@@ -1,7 +1,7 @@
 const init = {
   count: 0
 }
-const reducer = (state = init, action) => {
+const countReducer = (state = init, action) => {
     let newState = Object.assign({}, state);
     switch (action.type) {
       case "INCREAMENT":
@@ -10,8 +10,8 @@ const reducer = (state = init, action) => {
       case "DECREAMENT":
          newState.count = state.count - action.data;
          return newState;
-      default:
+      default:      
         return state
     }
 }
-export default reducer;
+export default countReducer;
