@@ -1,12 +1,21 @@
-function increament() { 
-    // return dispatch => {   
-            return { type: 'INCREAMENT'};    
-        // }
-}
-const actions = {
-    increament
+const INCREAMENT = "INCREAMENT";
+const DECREAMENT = "DECREAMENT";
+
+function inc(text) {
+    return dispatch => {
+        dispatch({ type: INCREAMENT, data: text });
+    }
 };
 
-console.log(actions.increament())
+function dec(text) {
+    return dispatch => {
+        dispatch({ type: DECREAMENT, data: text });
+    }
+};
+
+const actions = {
+    inc,
+    dec
+}
 
 export default actions;

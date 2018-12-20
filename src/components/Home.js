@@ -1,17 +1,19 @@
 import React from 'react';
-// import { bindActionCreators } from 'redux';
+import { bindActionCreators } from 'redux';
 import { connect } from 'react-redux';
 import actions  from '../actions';
 
-class Home extends React.Component {   
-
+class Home extends React.Component { 
+  
   increment = () => {
-      this.props.dispatch(actions.increament());
+      this.props.inc(2)
+      // this.props.dispatch(actions.inc());
       // this.props.dispatch({ type: 'INCREAMENT'});
   }
 
   decrement = () => {
-    this.props.dispatch(actions.decreament)
+      this.props.dec(2)
+    // this.props.dispatch(actions.dec());
     // this.props.dispatch({ type: 'DECREAMENT'});
   }
 
@@ -30,9 +32,10 @@ class Home extends React.Component {
     }   
     
 }
-// function mapDispatchToProps(dispatch) {
-//   return bindActionCreators(actions, dispatch);  
-// }
+
+function mapDispatchToProps(dispatch) {
+    return bindActionCreators(actions, dispatch);  
+}
 
 function mapStateToProps(state) {
   return {
@@ -40,4 +43,4 @@ function mapStateToProps(state) {
   };
 }
 
-export default connect(mapStateToProps)(Home);
+export default connect(mapStateToProps, mapDispatchToProps)(Home);
