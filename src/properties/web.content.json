@@ -1,0 +1,4 @@
+{
+  "usernameExist": "Username already exist, choose different username",
+  "errorInAction": "Unable to process your request: action"
+}
