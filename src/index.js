@@ -6,13 +6,17 @@ import './scss/App.scss';
 import App from './App';
 import * as serviceWorker from './serviceWorker';
 import { Provider  } from 'react-redux';
-import thunk from "redux-thunk";
-import { createStore, applyMiddleware, compose } from 'redux';
+// import thunk from "redux-thunk";
+import createSagaMiddleware from 'redux-saga';
+import { createStore, applyMiddleware } from 'redux';
 import reducers from './reducers';
+import rootSaga from "./sagas/index";
 
-const composeEnhancers = window.__REDUX_DEVTOOLS_EXTENSION_COMPOSE__ || compose;
-const middleware = composeEnhancers(applyMiddleware(thunk));
-const store = createStore(reducers, middleware);
+// const composeEnhancers = window.__REDUX_DEVTOOLS_EXTENSION_COMPOSE__ || compose;
+// const middleware = composeEnhancers(applyMiddleware(thunk));
+const sagaMiddleware = createSagaMiddleware()
+const store = createStore(reducers, applyMiddleware(sagaMiddleware));
+sagaMiddleware.run(rootSaga);
 
 ReactDOM.render(
     <Router>

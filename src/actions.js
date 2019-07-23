@@ -1,21 +1,23 @@
 const INCREAMENT = "INCREAMENT";
 const DECREAMENT = "DECREAMENT";
+const GET_NEWS = "GET_NEWS";
 
-function inc(text) {
-    return dispatch => {
-        dispatch({ type: INCREAMENT, data: text });
-    }
+function inc(txt) {
+    return { type: INCREAMENT, payload: txt }
 };
 
-function dec(text) {
-    return dispatch => {
-        dispatch({ type: DECREAMENT, data: text });
-    }
+function dec(txt) {
+    return { type: DECREAMENT, payload: txt }
 };
+
+function getNews() {
+   return { type: GET_NEWS }
+}
 
 const actions = {
     inc,
-    dec
+    dec,
+    getNews
 }
 
 export default actions;

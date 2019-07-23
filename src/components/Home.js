@@ -22,11 +22,9 @@ class Home extends React.Component {
       const time =  this.props.count;
       return (
       <div>
-        <h1>Home page</h1>
         <button type="button" onClick={this.increment}> Increase </button>
         <button type="button" onClick={this.decrement}> Decrease </button>
         <p>{ time }</p>
-        
       </div>
       )
     }   

@@ -1,5 +1,5 @@
 import React from 'react';
-import { Link } from "react-router-dom";
+import { NavLink } from "react-router-dom";
 import axios from 'axios';
 import requestUrl from '../config';
 
@@ -11,12 +11,12 @@ class Navigation extends React.Component {
       {
         "id": "1",
         "href": "/",
-        "title": "HomePage"
+        "title": "Home"
       },
       {
         "id": "2",
-        "href": "contact",
-        "title": "ContactPage"
+        "href": "/contact",
+        "title": "Contact Us"
       },
     ]
   }
@@ -40,7 +40,7 @@ class Navigation extends React.Component {
       return (       
           <nav>
             {navs.map(nav => (
-              <Link to={nav.href} key={nav.id}>{nav.title}</Link>
+              <NavLink to={nav.href} key={nav.id} exact activeStyle={{className: 'active'}}>{nav.title}</NavLink>
             ))}           
           </nav>
       )
