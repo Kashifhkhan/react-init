@@ -1,10 +1,9 @@
 import React from 'react';
 import { NavLink } from "react-router-dom";
-import axios from 'axios';
-import requestUrl from '../config';
+import logo from "../images/logo.png";
+import { Container } from 'reactstrap';
 
 class Navigation extends React.Component {
-
   
   state = {
     nav: [
@@ -15,33 +14,52 @@ class Navigation extends React.Component {
       },
       {
         "id": "2",
-        "href": "/contact",
-        "title": "Contact Us"
+        "href": "/login",
+        "title": "Log In"
       },
+      {
+        "id": "3",
+        "href": "/register",
+        "title": "Register"
+      }
     ]
   }
+
   
-  componentDidMount() { 
-    axios.get(`${requestUrl}nav`).then(res => {
-      // handle success
-      this.setState({
-        nav: res.data
-      });
-    })
-    .catch(function (error) {
-      // handle error
-      console.log(error);
-    });
-  }
+  
+  // componentDidMount() { 
+  //   axios.get(`${requestUrl}nav`).then(res => {
+  //     // handle success
+  //     this.setState({
+  //       nav: res.data
+  //     });
+  //   })
+  //   .catch(function (error) {
+  //     // handle error
+  //     console.log(error);
+  //   });
+  // }
   
   render(){   
     const navs =  this.state.nav;
+
     if(navs && navs.length > 0){
       return (       
-          <nav>
-            {navs.map(nav => (
-              <NavLink to={nav.href} key={nav.id} exact activeStyle={{className: 'active'}}>{nav.title}</NavLink>
-            ))}           
+          <nav>  
+            <Container>    
+              <div className="nav-wrap">    
+                <div className="logo">              
+                    <img src={logo} alt="Zensar" />
+                </div>              
+                  <ul>              
+                    {navs.map(nav => (
+                      <li key={nav.id}>
+                        <NavLink to={nav.href} exact activeStyle={{className: 'active'}}>{nav.title}</NavLink>
+                      </li>
+                    ))}           
+                  </ul>
+                </div>
+            </Container>
           </nav>
       )
     } else {

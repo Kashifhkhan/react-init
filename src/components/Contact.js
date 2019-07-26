@@ -1,7 +1,7 @@
 import React from 'react';
 import { bindActionCreators } from 'redux';
 import { connect } from 'react-redux';
-import actions  from '../actions';
+import customActions  from '../actions';
 
 class Contact extends React.Component { 
   getNews = () => {
@@ -49,7 +49,7 @@ class Contact extends React.Component {
 }
 
 function mapDispatchToProps(dispatch) {
-  return bindActionCreators(actions, dispatch);  
+  return bindActionCreators(customActions, dispatch);  
 }
 
 function mapStateToProps(state) {

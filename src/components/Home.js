@@ -1,38 +1,24 @@
 import React from 'react';
 import { bindActionCreators } from 'redux';
 import { connect } from 'react-redux';
-import actions  from '../actions';
+import customActions  from '../actions';
 
 class Home extends React.Component { 
 
-  increment = () => {
-      this.props.inc(2)
-      // this.props.dispatch(actions.inc());
-      // this.props.dispatch({ type: 'INCREAMENT'});
-  }
 
-  decrement = () => {
-      this.props.dec(2)
-    // this.props.dispatch(actions.dec());
-    // this.props.dispatch({ type: 'DECREAMENT'});
-  }
 
 
     render(){
-      const time =  this.props.count;
       return (
-      <div>
-        <button type="button" onClick={this.increment}> Increase </button>
-        <button type="button" onClick={this.decrement}> Decrease </button>
-        <p>{ time }</p>
+      <div className="home-container">
+          
       </div>
       )
-    }   
-    
+    }
 }
 
 function mapDispatchToProps(dispatch) {
-    return bindActionCreators(actions, dispatch);  
+    return bindActionCreators(customActions, dispatch);  
 }
 
 function mapStateToProps(state) {
